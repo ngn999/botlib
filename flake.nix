@@ -29,6 +29,11 @@
           # 在这里添加你需要禁用的配置选项
           # 比如，你可以设置环境变量来禁用某些功能
           # 例如，DISABLE_WALLET, DISABLE_BENCH 等
+          shellHook = ''
+              # 设置标准编译器和链接器标志，以便 IDE 识别
+              export CFLAGS=$NIX_CFLAGS_COMPILE
+              export LDFLAGS=$NIX_LDFLAGS
+          '';
         };
       }
     );
