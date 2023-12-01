@@ -75,6 +75,7 @@ int startBot(char *createdb_query, int argc, char **argv, int flags, TBRequestCa
 sds makeGETBotRequest(const char *action, int *resptr, char **optlist, int numopt);
 int botSendMessageAndGetInfo(int64_t target, sds text, int64_t reply_to, int64_t *chat_id, int64_t *message_id);
 int botSendMessage(int64_t target, sds text, int64_t reply_to);
+int botDeleteMessage(int64_t chat_id, int64_t message_id);
 int botEditMessageText(int64_t chat_id, int message_id, sds text);
 int botSendImage(int64_t target, char *filename);
 int botGetFile(BotRequest *br, const char *target_filename);

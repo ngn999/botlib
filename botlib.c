@@ -460,6 +460,22 @@ int botSendMessage(int64_t target, sds text, int64_t reply_to) {
     return botSendMessageAndGetInfo(target,text,reply_to,NULL,NULL);
 }
 
+/* Delete a message */
+int botDeleteMessage(int64_t chat_id, int64_t message_id) {
+    char *options[4];
+    int optlen = 2;
+    options[0] = "chat_id";
+    options[1] = sdsfromlonglong(chat_id);
+    options[2] = "message_id";
+    options[3] = sdsfromlonglong(message_id);
+    int res;
+    sds body = makeGETBotRequest("deleteMessage",&res,options,optlen);
+    sdsfree(body);
+    sdsfree(options[1]);
+    sdsfree(options[3]);
+    return res;
+}
+
 /* Send a message to the specified channel, optionally as a reply to a
  * specific message (if reply_to is non zero).
  * Return 1 on success, 0 on error. */
