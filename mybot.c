@@ -20,7 +20,7 @@ void handleRequest(sqlite3 *dbhandle, BotRequest *br) {
     sdsfree(empty);
 }
 
-// This is just called every 1 or 2 seconds. */
+// This is just called every 1 or 2 seconds.
 void cron(sqlite3 *dbhandle) {
     UNUSED(dbhandle);
     printf("."); fflush(stdout);
