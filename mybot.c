@@ -13,6 +13,7 @@
  * specified as "triggers" in startBot() matched the message. Otherwise we
  * would spawn threads too often :) */
 void handleRequest(sqlite3 *dbhandle, BotRequest *br) {
+    UNUSED(dbhandle);
     sds empty = sdsempty();
     if ((br->type == TB_TYPE_GROUP || br->type == TB_TYPE_SUPERGROUP) && sdscmp(br->request, empty)) {
         botDeleteMessage(br->target, br->msg_id);
