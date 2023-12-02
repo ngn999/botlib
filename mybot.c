@@ -13,9 +13,11 @@
  * specified as "triggers" in startBot() matched the message. Otherwise we
  * would spawn threads too often :) */
 void handleRequest(sqlite3 *dbhandle, BotRequest *br) {
-    if (br->type == TB_TYPE_GROUP || br->type == TB_TYPE_SUPERGROUP) {
+    sds empty = sdsempty();
+    if ((br->type == TB_TYPE_GROUP || br->type == TB_TYPE_SUPERGROUP) && sdscmp(br->request, empty)) {
         botDeleteMessage(br->target, br->msg_id);
     }
+    sdsfree(empty);
 }
 
 // This is just called every 1 or 2 seconds. */
