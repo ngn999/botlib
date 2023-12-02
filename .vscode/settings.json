@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "sqlite3.h": "c",
+    "botlib.h": "c",
+    "sqlite_wrap.h": "c",
+    "time.h": "c",
+    "curl.h": "c"
+  }
+}
